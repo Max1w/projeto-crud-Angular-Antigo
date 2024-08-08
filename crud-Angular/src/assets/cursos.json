@@ -1,0 +1,10 @@
+[
+  { "_id": "1", "name": "Angular", "category": "Front-end" },
+  { "_id": "2", "name": "Maven", "category": "Settings" },
+  { "_id": "3", "name": "Java", "category": "Back-end" },
+  { "_id": "4", "name": "JavaScript", "category": "Front-end" },
+  { "_id": "5", "name": "TypeScript", "category": "Front-end" },
+  { "_id": "6", "name": "C#", "category": "Back-end" },
+  { "_id": "7", "name": "VB", "category": "Back-end" },
+  { "_id": "8", "name": "React", "category": "Front-end" }
+]
