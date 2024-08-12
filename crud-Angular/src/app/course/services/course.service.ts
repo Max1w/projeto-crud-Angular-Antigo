@@ -9,7 +9,7 @@ import { Course } from '../model/course';
 })
 export class CourseService {
 
-  private readonly API = 'assets/cursos.json'
+  private readonly API = 'api/hello/TodosOsItens'
 
   constructor(private httpClient: HttpClient) { }
 
@@ -20,4 +20,11 @@ export class CourseService {
       tap( course => console.log(course))
     );
   }
+
+  save(register: Course){
+    return this.httpClient.post<Course>(this.API, register).pipe(first())
+  }
+
+
+
 }

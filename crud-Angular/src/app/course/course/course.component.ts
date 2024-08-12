@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, RedirectCommand, Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 
 import { AppMaterialModule } from '../../shared/app-material/app-material.module';
@@ -18,13 +18,13 @@ import { SharedModule } from "../../shared/shared.module";
 })
 export class CourseComponent implements OnInit {
   course$: Observable<Course[]>;
-  displayedColumns = ['name', 'category'];
+  displayedColumns = ['name', 'category', 'actions'];
 
   constructor(
     private courseService: CourseService,
     private router: Router,
     private routeActive: ActivatedRoute,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) {
     this.course$ = this.courseService.list().pipe(catchError(error => {
       console.log(this.onError('Erro ao carregar cursos!'))
@@ -43,4 +43,8 @@ export class CourseComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  onAdd(){
+    this.router.navigate(['new'], {relativeTo: this.routeActive});
+  }
 }
