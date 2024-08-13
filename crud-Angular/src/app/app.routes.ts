@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { CourseComponent } from './course/course/course.component';
+import { CourseComponent } from './course/containers/course/course.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'course' },
