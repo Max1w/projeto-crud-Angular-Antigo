@@ -21,7 +21,11 @@ export class CourseService {
     );
   }
 
-  save(register: Course){
+  loadById(id: string) {
+    return this.httpClient.get<Course>(`${this.API}/${id}`).pipe(first());
+  }
+
+  save(register: Partial<Course>){
     if(!register._id){
       return this.create(register);
     }
@@ -29,15 +33,11 @@ export class CourseService {
   }
 
   private create(register: Partial<Course>){
-    return this.httpClient.post<Course>(this.API, register).pipe(first())
+    return this.httpClient.post<Course>(this.API, register).pipe(first());
   }
 
   private update(register: Partial<Course>){
     return this.httpClient.put<Course>(`${this.API}/${register._id}`, register).pipe(first());
-  }
-
-  loadById(id: string) {
-    return this.httpClient.get<Course>(`${this.API}/${id}`).pipe(first());
   }
 
   delete(id:string){
